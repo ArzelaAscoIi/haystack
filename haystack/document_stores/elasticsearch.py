@@ -2174,7 +2174,7 @@ class OpenSearchDocumentStore(ElasticsearchDocumentStore):
 
     def _get_embedding_field_mapping(self, similarity: str):
         space_type = self.similarity_to_space_type[similarity]
-        method: dict = {"space_type": space_type, "name": "hnsw", "engine": "nmslib"}
+        method: dict = {"space_type": space_type, "name": "hnsw", "engine": "faiss"}
 
         if self.index_type == "flat":
             # use default parameters
