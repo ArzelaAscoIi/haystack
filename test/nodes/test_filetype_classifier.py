@@ -52,6 +52,13 @@ def test_filetype_classifier_unsupported_extension(tmp_path):
 
 
 @pytest.mark.unit
+def test_filetype_classifier_unsupported_extension_without_raising_error_setting(tmp_path):
+    node = FileTypeClassifier(raise_on_error=False)
+    test_file = tmp_path / "test.really_weird_extension"
+    assert node.run(test_file) is None
+
+
+@pytest.mark.unit
 def test_filetype_classifier_custom_extensions(tmp_path):
     node = FileTypeClassifier(supported_types=["my_extension"])
     test_file = tmp_path / "test.my_extension"

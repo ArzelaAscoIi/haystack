@@ -129,7 +129,7 @@ class FileTypeClassifier(BaseComponent):
                     "Consider using the 'supported_types' parameter to "
                     "change the types accepted by this node."
                 )
-                return 
+                return None, None
             raise ValueError(
                 f"Files of type '{extension}' ({paths[0]}) are not supported. "
                 f"The supported types are: {self.supported_types}. "
